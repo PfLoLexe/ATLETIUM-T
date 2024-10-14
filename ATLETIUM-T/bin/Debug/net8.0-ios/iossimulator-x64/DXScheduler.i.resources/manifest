@@ -1,0 +1,14 @@
+﻿<BindingAssembly>
+	<NativeReference Name="DXScheduler.xcframework">
+		<ForceLoad>True</ForceLoad>
+		<Frameworks></Frameworks>
+		<IdentityWithoutPathSeparatorSuffix>/Users/macmini/azure_agent/_work/1/s/xamarin/Maui/References/../../../ios/Frameworks/DXScheduler.xcframework</IdentityWithoutPathSeparatorSuffix>
+		<IsCxx></IsCxx>
+		<Kind>Framework</Kind>
+		<LinkerFlags></LinkerFlags>
+		<LinkWithSwiftSystemLibraries></LinkWithSwiftSystemLibraries>
+		<NeedsGccExceptionHandling></NeedsGccExceptionHandling>
+		<SmartLink>False</SmartLink>
+		<WeakFrameworks></WeakFrameworks>
+	</NativeReference>
+</BindingAssembly>

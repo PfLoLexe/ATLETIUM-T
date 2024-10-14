@@ -1,0 +1,14 @@
+﻿<BindingAssembly>
+	<NativeReference Name="DXGrid.xcframework">
+		<ForceLoad></ForceLoad>
+		<Frameworks></Frameworks>
+		<IdentityWithoutPathSeparatorSuffix>/Users/macmini/azure_agent/_work/1/s/xamarin/Maui/References/../../../ios/Frameworks/DXGrid.xcframework</IdentityWithoutPathSeparatorSuffix>
+		<IsCxx></IsCxx>
+		<Kind>Framework</Kind>
+		<LinkerFlags></LinkerFlags>
+		<LinkWithSwiftSystemLibraries></LinkWithSwiftSystemLibraries>
+		<NeedsGccExceptionHandling></NeedsGccExceptionHandling>
+		<SmartLink>False</SmartLink>
+		<WeakFrameworks></WeakFrameworks>
+	</NativeReference>
+</BindingAssembly>
