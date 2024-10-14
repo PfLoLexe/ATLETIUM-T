@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATLETIUM_T.components.TrainsList">
+    <ListView
+        x:Name="TrainsListView"
+        HasUnevenRows="True"
+        VerticalOptions="Start"
+        SeparatorVisibility="None" 
+        VerticalScrollBarVisibility="Never"
+        IsPullToRefreshEnabled="False"
+        ItemTapped="TrainsListView_OnItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame
+                        CornerRadius="15"
+                        BorderColor="{StaticResource AtletiumBlue}"
+                        BackgroundColor="{StaticResource AtletiumWhite}" 
+                        Margin="5"
+                        Padding="10">
+                        <Grid 
+                            ColumnSpacing="20.0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label
+                                Text="{Binding train_start_time}"
+                                Style="{StaticResource Headline}"
+                                FontSize="20.0"
+                                FontAttributes="Bold"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                HorizontalOptions="End"
+                                x:Name="TrainStartTimeLabel" />
+                            <Label
+                                Text="{Binding train_end_time}"
+                                Style="{StaticResource Headline}"
+                                FontSize="Small"
+                                Grid.Column="0"
+                                Grid.Row="1" 
+                                HorizontalOptions="End"
+                                x:Name="TrainEndTimeLabel" />
+                            
+                            <Label
+                                Text="{Binding train_label}"
+                                Style="{StaticResource Headline}"
+                                FontSize="20.0"
+                                FontAttributes="Bold"
+                                Grid.Column="1"
+                                Grid.Row="0" 
+                                HorizontalOptions="Start" 
+                                x:Name="TrainNameLabel"/>
+                            
+                            <Grid
+                                Grid.Column="1"
+                                Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="location_icon.png"
+                                    MaximumWidthRequest="15"
+                                    MaximumHeightRequest="15"
+                                    Margin="0, 0, 1, 0"/>
+                                <Label
+                                    Text="{Binding train_place}"
+                                    Style="{StaticResource Headline}"
+                                    FontSize="Small"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    x:Name="TrainPlaceLabel" />
+                            </Grid>
+                            
+                            <Grid
+                                Grid.Column="1"
+                                Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    Source="{Binding train_type_img}"
+                                    MaximumWidthRequest="15"
+                                    MaximumHeightRequest="15"
+                                    Margin="0, 0, 1, 0"/>
+                                <Label
+                                    Text="{Binding train_type}"
+                                    Style="{StaticResource Headline}"
+                                    FontSize="Small"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    x:Name="TrainTypeLabel" />
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentView>
