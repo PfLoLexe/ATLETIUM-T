@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Happy Wolf\\Desktop\\android\\git\\ATLETIUM-T\\ATLETIUM-T\\ATLETIUM-T.csproj": {}
+    "E:\\study\\projects\\AtletiumTGit\\ATLETIUM-T\\ATLETIUM-T.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Happy Wolf\\Desktop\\android\\git\\ATLETIUM-T\\ATLETIUM-T\\ATLETIUM-T.csproj": {
+    "E:\\study\\projects\\AtletiumTGit\\ATLETIUM-T\\ATLETIUM-T.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Happy Wolf\\Desktop\\android\\git\\ATLETIUM-T\\ATLETIUM-T\\ATLETIUM-T.csproj",
+        "projectUniqueName": "E:\\study\\projects\\AtletiumTGit\\ATLETIUM-T\\ATLETIUM-T.csproj",
         "projectName": "ATLETIUM-T",
-        "projectPath": "C:\\Users\\Happy Wolf\\Desktop\\android\\git\\ATLETIUM-T\\ATLETIUM-T\\ATLETIUM-T.csproj",
-        "packagesPath": "C:\\Users\\Happy Wolf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Happy Wolf\\Desktop\\android\\git\\ATLETIUM-T\\ATLETIUM-T\\obj\\",
+        "projectPath": "E:\\study\\projects\\AtletiumTGit\\ATLETIUM-T\\ATLETIUM-T.csproj",
+        "packagesPath": "C:\\Users\\cazas\\.nuget\\packages\\",
+        "outputPath": "E:\\study\\projects\\AtletiumTGit\\ATLETIUM-T\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Happy Wolf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cazas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,8 +30,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/zXo5D3SWgblC82t7PeiOyAQeksOpMgOoBAMngeIpWSqyv91cvx/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-android34.0": {
@@ -88,7 +87,7 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.72, )"
+              "version": "[8.0.82, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
@@ -147,7 +146,7 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.72, )"
+              "version": "[8.0.82, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
@@ -206,7 +205,7 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.72, )"
+              "version": "[8.0.82, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
@@ -266,7 +265,7 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.72, )"
+              "version": "[8.0.82, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
@@ -286,8 +285,48 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-arm",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-arm64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x86",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.19041.34, 10.0.19041.34]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+              "version": "[8.0.8, 8.0.8]"
             }
           ],
           "frameworkReferences": {
@@ -320,7 +359,25 @@
         "maccatalyst-x64": {
           "#import": []
         },
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
         "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
           "#import": []
         }
       }

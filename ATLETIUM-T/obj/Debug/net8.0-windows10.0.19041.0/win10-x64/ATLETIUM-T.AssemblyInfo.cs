@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ATLETIUM-T")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+7a247740390b2d569139175784e00372402087ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+6ebe540b926c4b492de337325d1350111e4093d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ATLETIUM-T")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ATLETIUM-T")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
