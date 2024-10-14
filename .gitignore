@@ -1,8 +1,4 @@
-./ATLETIUM-T/Properties
-./ATLETIUM-T/Platforms
-./ATLETIUM-T/bin
-./ATLETIUM-T/obj
-./.vs
-./.idea
-./ATLETIUM-T.sln
-./ATLETIUM-T.sln.DotSettings.user
+./
+!./ATLETIUM-T/Platforms
+!./ATLETIUM-T/src
+!./ATLETIUM-T/Resources

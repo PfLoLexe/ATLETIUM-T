@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:ATLETIUM_T.components"
+             x:Class="ATLETIUM_T.MainPage"
+             BackgroundColor="{StaticResource AtletiumWhite}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <RefreshView
+            Grid.Row="0" x:Name="MainPageMainRefreshView"
+            Refreshing="MainPageMainRefreshView_OnRefreshing">
+             <ScrollView
+                 VerticalScrollBarVisibility="Never">
+                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Border 
+                        Grid.Row="0" 
+                        Padding="10, 10, 10, 5" 
+                        Stroke="Transparent" >
+                        <Label
+                            x:Name="DayOfTheWeekLabel"
+                            Text="Error" 
+                            FontSize="22" 
+                            FontAttributes="Bold"/>
+                    </Border>
+                    <Border 
+                        Grid.Row="1"
+                        Padding="10, 0, 10, 0"
+                        Stroke="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Text="Error"
+                                x:Name="DayAndMonthLabel"
+                                Margin="0, 0, 5, 0"
+                                FontSize="20" />
+                            <Image
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                MaximumHeightRequest="13"
+                                MaximumWidthRequest="13"
+                                Margin="0, 0, 5, 0"
+                                Source="dot.png"/>
+                            <Label
+                                Grid.Column="2"
+                                Grid.Row="0"
+                                Text="Error"
+                                x:Name="CountOfTrainsTodayLabel"
+                                FontSize="20" />
+                        </Grid>
+                    </Border>
+                    <Border 
+                        Grid.Row="2"
+                        Padding="5"
+                        Stroke="Transparent">
+                        <templates:TrainsList x:Name="TrainListTemplate"/>
+                    </Border>
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+
+</ContentPage>
