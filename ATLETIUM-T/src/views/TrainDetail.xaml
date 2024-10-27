@@ -5,59 +5,46 @@
              x:Class="ATLETIUM_T.views.TrainDetail"
              xmlns:templates="clr-namespace:ATLETIUM_T.components">
     
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Border 
+                    Grid.Row="0" 
+                    Padding="10, 10, 10, 5" 
+                    Stroke="Transparent" >
+                    <Label
+                        x:Name="TrainNameLabel"
+                        Text="Error" 
+                        FontSize="22" 
+                        FontAttributes="Bold"/>
+                </Border>
+                <Border 
+                    Grid.Row="1"
+                    Padding="10, 0, 10, 0"
+                    Stroke="Transparent">
+                    <Label
+                        Text="Error"
+                        x:Name="TrainTimeLabel"
+                        Margin="0, 0, 5, 0"
+                        FontSize="20" />
+                </Border>
+                <Border 
+                    Grid.Row="2"
+                    x:Name="ClientsDataGridBorder"
+                    Padding="5"
+                    Stroke="Transparent">
+                    <StackLayout x:Name="MainLayout" />
+                </Border>
+            </Grid>
+    </Grid>
     
-    
-    <ScrollView>
-        <VerticalStackLayout x:Name="MainLayout">
-            <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-                    <Border 
-                        Grid.Row="0" 
-                        Padding="10, 10, 10, 5" 
-                        Stroke="Transparent" >
-                        <Label
-                            x:Name="TrainNameLabel"
-                            Text="Error" 
-                            FontSize="22" 
-                            FontAttributes="Bold"/>
-                    </Border>
-                    <Border 
-                        Grid.Row="1"
-                        Padding="10, 0, 10, 0"
-                        Stroke="Transparent">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label
-                                Grid.Column="0"
-                                Grid.Row="0"
-                                Text="Error"
-                                x:Name="TrainTimeLabel"
-                                Margin="0, 0, 5, 0"
-                                FontSize="20" />
-                            <Image
-                                Grid.Column="1"
-                                Grid.Row="0"
-                                MaximumHeightRequest="13"
-                                MaximumWidthRequest="13"
-                                Margin="0, 0, 5, 0"
-                                Source="dot.png"/>
-                            <Label
-                                Grid.Column="2"
-                                Grid.Row="0"
-                                Text="Error"
-                                x:Name="DayAndMonthLabel"
-                                FontSize="20" />
-                        </Grid>
-                    </Border>
-                </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
+
 </ContentPage>

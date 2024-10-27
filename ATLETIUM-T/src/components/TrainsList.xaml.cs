@@ -39,12 +39,13 @@ public partial class TrainsList : ContentView
         if (e.ItemIndex == _train_list_view_tapped)
         {
             _train_list_view_tapped = null;
-            string t = "sss";
+
             await Shell.Current.GoToAsync($"{nameof(TrainDetail)}",
                 new Dictionary<string, object>
                 {
-                    ["train"] = t
+                    ["train"] = _trains[e.ItemIndex]
                 });
+
         }
         else
         {
