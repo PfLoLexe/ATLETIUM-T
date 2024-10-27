@@ -1,0 +1,21 @@
+﻿# Rider-specific
+.idea/
+.idea/*
+
+# .NET-specific
+bin/
+obj/
+
+# User-specific files
+.vs/
+.vs/*
+*.suo
+*.user
+*.userosscache
+
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db

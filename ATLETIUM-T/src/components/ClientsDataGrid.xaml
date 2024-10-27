@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="ATLETIUM_T.components.ClientsDataGrid">
+   
+    <dx:DataGridView    
+        x:Name="ClientsDataGridView"
+        EditorShowMode="Tap"
+        Margin="10"
+        BackgroundColor="{StaticResource AtletiumWhite}"
+        IsVerticalScrollBarVisible="False">
+        <dx:DataGridView.Columns>
+            <dx:TextColumn
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Start"
+                HorizontalHeaderAlignment="Center"
+                FieldName="client.fullname"
+                Caption="ФИО"
+                IsReadOnly="True"/>
+            <dx:ComboBoxColumn
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalHeaderAlignment="Center"
+                Caption="Посещение"
+                IsReadOnly="False"
+                x:Name="ClientsDataGridViewAttendanceComboBoxColumn"
+                FieldName="attendance_mark"
+                DisplayMember="caption"
+                ValueMember="value"/>
+        </dx:DataGridView.Columns>
+    </dx:DataGridView>
+</ContentView>
