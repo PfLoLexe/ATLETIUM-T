@@ -10,15 +10,21 @@ using Microsoft.Maui.Controls;
 
 namespace ATLETIUM_T.views;
 
-[QueryProperty(nameof(train), "train")]
+[QueryProperty(nameof(Train), "train")]
 public partial class TrainDetail : ContentPage
 {
-    public string train { get; set; }
+    public TrainListItem Train { get; set; }
     public TrainDetail()
     {
         InitializeComponent();
         MainLayout.Children.Add(new TrainInfoTabBar([new ClientsDataGrid()]));
-        new ToastMessage().ShortToast(train);
+        // ClientsDataGridBorder.AddLogicalChild(new TrainInfoTabBar([new ClientsDataGrid()]));
     }
-    
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        TrainNameLabel.Text = Train.train_label;
+        TrainTimeLabel.Text = $"{Train.train_start_time} - {Train.train_end_time}";
+    }
 }
