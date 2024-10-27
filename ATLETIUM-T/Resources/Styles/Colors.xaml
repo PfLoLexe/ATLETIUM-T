@@ -33,6 +33,11 @@
     <Color x:Key="AtletiumGreen">#4db77b</Color>
     <Color x:Key="AtletiumOrange">#ef8d25</Color>
     <Color x:Key="AtletiumWhite">#E8E8E8</Color>
+    
+    <!-- Tap bar colors -->
+    <Color x:Key="DefaultBackLineColor">Gray</Color>
+    <Color x:Key="UnselectedTabColor">DimGray</Color>
+    <Color x:Key="SelectedTabColor">Crimson</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

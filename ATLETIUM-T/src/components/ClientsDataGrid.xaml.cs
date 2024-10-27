@@ -16,6 +16,10 @@ public partial class ClientsDataGrid : ContentView
     public ClientsDataGrid()
     {
         InitializeComponent();
+        
+        // Название списка (используется для генерации вкладок tab bar`a)
+        this.AutomationId = "Клиенты";
+        
         _clients = new ObservableCollection<ClientAttendanceMark>
         {
             new ClientAttendanceMark(new Client("Александр")),
@@ -26,4 +30,6 @@ public partial class ClientsDataGrid : ContentView
         ClientsDataGridView.ItemsSource = _clients;
         ClientsDataGridViewAttendanceComboBoxColumn.ItemsSource = AttendanceMark.attendance_variations_list;
     }
+
+
 }
