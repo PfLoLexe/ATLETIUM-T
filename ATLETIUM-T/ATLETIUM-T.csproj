@@ -64,6 +64,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.72" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,6 +121,10 @@
 	  <AdditionalFiles Include="src\views\ProfilePage.xaml" />
 	  <AdditionalFiles Include="src\views\TrainsPage.xaml" />
 	  <AdditionalFiles Include="src\components\TrainsList.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="src\api\service\" />
 	</ItemGroup>
 
 </Project>

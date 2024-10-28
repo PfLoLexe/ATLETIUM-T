@@ -33,7 +33,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label
-                                Text="{Binding train_start_time}"
+                                Text="{Binding train_start_time_converted}"
                                 Style="{StaticResource Headline}"
                                 FontSize="20.0"
                                 FontAttributes="Bold"
@@ -42,7 +42,7 @@
                                 HorizontalOptions="End"
                                 x:Name="TrainStartTimeLabel" />
                             <Label
-                                Text="{Binding train_end_time}"
+                                Text="{Binding train_end_time_converted}"
                                 Style="{StaticResource Headline}"
                                 FontSize="Small"
                                 Grid.Column="0"
