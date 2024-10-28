@@ -1,14 +1,18 @@
-﻿using Microsoft.Maui.Handlers;
+﻿using ATLETIUM_T.components;
+using Microsoft.Maui.Handlers;
 
 namespace ATLETIUM_T.views;
 
 public partial class TrainsPage : ContentPage
 {
     private readonly DateWeekDay _date_week_day = new DateWeekDay();
+    private TrainsList _trainsList;
     
     public TrainsPage()
     {
         InitializeComponent();
+        _trainsList = new TrainsList();
+        MainLayout.Children.Add(_trainsList);
         LoadPageInfo();
     }
     
@@ -17,15 +21,20 @@ public partial class TrainsPage : ContentPage
         DayOfTheWeekLabel.Text = _date_week_day.GetDayOfTheWeek();
         DayNumberLabel.Text = _date_week_day.GetDayAsInt();
         MonthNameLabel.Text = _date_week_day.GetMonthAsString();
+        MainLayout.Children.Clear();
+        TrainsList _trainsList = new TrainsList(_date_week_day.DayWeekNumber);
+        MainLayout.Children.Add(_trainsList);
         LoadCountOfTrains();
     }
     
+    // private void LoadCountOfTrains() =>
+    //     CountOfTrainsTodayLabel.Text = "Занятия: " + TrainListTemplate.count_of_trains_today.ToString();
     private void LoadCountOfTrains() =>
-        CountOfTrainsTodayLabel.Text = "Занятия: " + TrainListTemplate.count_of_trains_today.ToString();
+    CountOfTrainsTodayLabel.Text = "Занятия: " + _trainsList.count_of_trains_today.ToString();
 
     private void TrainsPageMainRefreshView_OnRefreshing(object? sender, EventArgs e)
     {
-        TrainListTemplate.ListViewTrainsRefreshing();
+        _trainsList.ListViewTrainsRefreshing();
         LoadCountOfTrains();
         TrainsPageMainRefreshView.IsRefreshing = false;
     }

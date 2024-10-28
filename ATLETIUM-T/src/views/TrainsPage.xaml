@@ -104,7 +104,8 @@
                         Grid.Row="2"
                         Padding="5"
                         Stroke="Transparent">
-                        <components:TrainsList x:Name="TrainListTemplate"/>
+                        <VerticalStackLayout x:Name="MainLayout" />
+                        <!-- <components:TrainsList x:Name="TrainListTemplate"/> -->
                     </Border>
                 </Grid>
             </ScrollView>
