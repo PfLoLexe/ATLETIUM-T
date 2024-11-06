@@ -123,8 +123,4 @@
 	  <AdditionalFiles Include="src\components\TrainsList.xaml" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="src\api\service\" />
-	</ItemGroup>
-
 </Project>
