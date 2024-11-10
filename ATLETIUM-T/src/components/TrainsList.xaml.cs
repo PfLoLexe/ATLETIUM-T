@@ -1,36 +1,46 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using ATLETIUM_T.Models;
 using Microsoft.Maui.Controls;
 using System.Timers;
+using ATLETIUM_T.api.controllers;
+using ATLETIUM_T.api.repositories;
 using Timer = System.Timers.Timer;
 
 namespace ATLETIUM_T.components;
 
 public partial class TrainsList : ContentView
 {
-    private ObservableCollection<TrainListItem> _trains { get; set; } = new ObservableCollection<TrainListItem>();
+    private ObservableCollection<TrainMain> _trains { get; set; } = new ObservableCollection<TrainMain>();
     private int? _train_list_view_tapped;
     private Timer _train_list_view_tapped_timer = new Timer(2000);
     public int count_of_trains_today { get; private set; } = 0;
+    private TrainController _controller = new TrainController(new TrainRepository());
     public TrainsList()
     {
         InitializeComponent();
         LoadTrains();
         _train_list_view_tapped_timer.Elapsed += OnTappedTimerEvent;
+        TrainsListView.ItemsSource = _trains;
     }
     
     public void ListViewTrainsRefreshing()
     {
-        _trains.Add(new TrainListItem("1", "11:00", "10:30", "Плавание 15+", "Бассейн", TrainType.Group));
-        
-        count_of_trains_today = _trains.Count;
+        LoadTrains();
     }
     
-    private void LoadTrains()
+    private async void LoadTrains()
     {
-        _trains.Add(new TrainListItem("1", "10:00", "10:30", "Плавание 10+", "Бассейн", TrainType.Solo));
+        var correct_number = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;
+        var trainsList = await _controller.GetTrainsListAsync(correct_number, DateTime.Now);
+        if (_trains != null) _trains.Clear();
+        if (trainsList == null) return;
+        foreach (var train in trainsList)
+        {
+            _trains.Add(train);
+        }
+
         count_of_trains_today = _trains.Count;
-        TrainsListView.ItemsSource = _trains;
     }
 
     private async void TrainsListView_OnItemTapped(object? sender, ItemTappedEventArgs e)

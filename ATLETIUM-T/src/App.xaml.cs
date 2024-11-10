@@ -1,14 +1,14 @@
 ﻿using System.Globalization;
 using Microsoft.Maui.Controls;
 
-namespace ATLETIUM_T
+namespace ATLETIUM_T;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            InitializeComponent();
-            MainPage = new AppShell();
-        }
+        InitializeComponent();
+        MainPage = new AppShell();
     }
+
 }
