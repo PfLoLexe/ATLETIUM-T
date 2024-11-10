@@ -1,5 +1,6 @@
-
-﻿using System;
+﻿
+using System;
+using ATLETIUM_T.components;
 using Microsoft.Maui.Controls;
 
 using Microsoft.Maui.Handlers;
@@ -25,7 +26,7 @@ public partial class TrainsPage : ContentPage
         DayNumberLabel.Text = _date_week_day.GetDayAsInt();
         MonthNameLabel.Text = _date_week_day.GetMonthAsString();
         MainLayout.Children.Clear();
-        TrainsList _trainsList = new TrainsList(_date_week_day.DayWeekNumber);
+        TrainsList _trainsList = new TrainsList();
         MainLayout.Children.Add(_trainsList);
         LoadCountOfTrains();
     }
