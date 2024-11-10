@@ -37,6 +37,7 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Text="{Binding start_time_parsed}"
+
                                 Style="{StaticResource Headline}"
                                 FontSize="20.0"
                                 FontAttributes="Bold"
@@ -46,6 +47,7 @@
                                 x:Name="TrainStartTimeLabel" />
                             <Label
                                 Text="{Binding end_time_parsed}"
+
                                 Style="{StaticResource Headline}"
                                 FontSize="Small"
                                 Grid.Column="0"

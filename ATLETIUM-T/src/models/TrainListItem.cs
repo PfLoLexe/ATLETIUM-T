@@ -39,4 +39,7 @@ public class TrainListItem
     public string train_place { get; private set; }
     public string train_type { get; private set; }
     public ImageSource train_type_img { get; private set; }
+    
+    public string train_start_time_converted => DateTime.Parse(train_start_time).ToString("HH:mm");
+    public string train_end_time_converted => DateTime.Parse(train_end_time).ToString("HH:mm");
 }

@@ -42,4 +42,6 @@ public class DateWeekDay
         //new ToastMessage().LongToast(date.ToShortDateString());
         _date = date;
     }
+
+    public int DayWeekNumber => (int)_date.DayOfWeek;
 }

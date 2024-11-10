@@ -18,12 +18,13 @@ public partial class TrainDetail : ContentPage
     private readonly TrainController _controller = new TrainController(new TrainRepository());
     
     public TrainMain Train { get; set; }
+
     public TrainDetail()
     {
         InitializeComponent();
     }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    protected async override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
         TrainNameLabel.Text = Train.name;
@@ -44,4 +45,5 @@ public partial class TrainDetail : ContentPage
         }
         MainLayout.Children.Add(new TrainInfoTabBar([new ClientsDataGrid(clients)]));
     }
+
 }

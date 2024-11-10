@@ -5,20 +5,36 @@ using Microsoft.Maui.Controls;
 using System.Timers;
 using ATLETIUM_T.api.controllers;
 using ATLETIUM_T.api.repositories;
+
 using Timer = System.Timers.Timer;
 
 namespace ATLETIUM_T.components;
 
 public partial class TrainsList : ContentView
 {
+
     private ObservableCollection<TrainMain> _trains { get; set; } = new ObservableCollection<TrainMain>();
     private int? _train_list_view_tapped;
     private Timer _train_list_view_tapped_timer = new Timer(2000);
+    private int _dayWeekNumber;
+    
+    private int DayWeekNumber
+    {
+        get
+        {
+            if (_dayWeekNumber == 0) return (int)DateTime.Now.DayOfWeek;
+            return _dayWeekNumber;
+        }
+        
+        set { _dayWeekNumber = value; }
+    }
     public int count_of_trains_today { get; private set; } = 0;
     private TrainController _controller = new TrainController(new TrainRepository());
     public TrainsList()
+
     {
         InitializeComponent();
+        DayWeekNumber = dayWeekNumber;
         LoadTrains();
         _train_list_view_tapped_timer.Elapsed += OnTappedTimerEvent;
         TrainsListView.ItemsSource = _trains;
