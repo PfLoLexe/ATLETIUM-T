@@ -1,7 +1,7 @@
-﻿
-using System;
-using ATLETIUM_T.components;
-using Microsoft.Maui.Controls;
+
+﻿using System;
+ using ATLETIUM_T.components;
+ using Microsoft.Maui.Controls;
 
 using Microsoft.Maui.Handlers;
 
