@@ -1,4 +1,7 @@
-﻿using ATLETIUM_T.components;
+
+﻿using System;
+using Microsoft.Maui.Controls;
+
 using Microsoft.Maui.Handlers;
 
 namespace ATLETIUM_T.views;
@@ -15,7 +18,7 @@ public partial class TrainsPage : ContentPage
         MainLayout.Children.Add(_trainsList);
         LoadPageInfo();
     }
-    
+
     private void LoadPageInfo()
     {
         DayOfTheWeekLabel.Text = _date_week_day.GetDayOfTheWeek();

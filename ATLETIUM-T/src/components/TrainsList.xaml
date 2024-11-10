@@ -15,12 +15,15 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Frame
-                        CornerRadius="15"
-                        BorderColor="{StaticResource AtletiumBlue}"
+                    <Border
+                        Stroke="{StaticResource AtletiumBlue}"
                         BackgroundColor="{StaticResource AtletiumWhite}" 
                         Margin="5"
-                        Padding="10">
+                        Padding="10"
+                        StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15" />
+                        </Border.StrokeShape>
                         <Grid 
                             ColumnSpacing="20.0" >
                             <Grid.ColumnDefinitions>
@@ -33,7 +36,8 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label
-                                Text="{Binding train_start_time_converted}"
+                                Text="{Binding start_time_parsed}"
+
                                 Style="{StaticResource Headline}"
                                 FontSize="20.0"
                                 FontAttributes="Bold"
@@ -42,7 +46,8 @@
                                 HorizontalOptions="End"
                                 x:Name="TrainStartTimeLabel" />
                             <Label
-                                Text="{Binding train_end_time_converted}"
+                                Text="{Binding end_time_parsed}"
+
                                 Style="{StaticResource Headline}"
                                 FontSize="Small"
                                 Grid.Column="0"
@@ -51,7 +56,7 @@
                                 x:Name="TrainEndTimeLabel" />
                             
                             <Label
-                                Text="{Binding train_label}"
+                                Text="{Binding name}"
                                 Style="{StaticResource Headline}"
                                 FontSize="20.0"
                                 FontAttributes="Bold"
@@ -73,7 +78,7 @@
                                     MaximumHeightRequest="15"
                                     Margin="0, 0, 1, 0"/>
                                 <Label
-                                    Text="{Binding train_place}"
+                                    Text="{Binding place_name}"
                                     Style="{StaticResource Headline}"
                                     FontSize="Small"
                                     Grid.Column="1"
@@ -95,7 +100,7 @@
                                     MaximumHeightRequest="15"
                                     Margin="0, 0, 1, 0"/>
                                 <Label
-                                    Text="{Binding train_type}"
+                                    Text="{Binding train_type_ru}"
                                     Style="{StaticResource Headline}"
                                     FontSize="Small"
                                     Grid.Column="1"
@@ -103,7 +108,7 @@
                                     x:Name="TrainTypeLabel" />
                             </Grid>
                         </Grid>
-                    </Frame>
+                    </Border>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

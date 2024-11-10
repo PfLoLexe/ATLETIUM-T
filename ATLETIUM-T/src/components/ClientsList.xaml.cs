@@ -16,13 +16,13 @@ public partial class ClientsList : ContentView
     public ClientsList()
     {
         InitializeComponent();
-        _clients = new ObservableCollection<ClientAttendanceMark>
-        {
-            new ClientAttendanceMark(new Client("Александр")),
-            new ClientAttendanceMark(new Client("Влад")),
-            new ClientAttendanceMark(new Client("Марина")),
-            new ClientAttendanceMark(new Client("Яна")),
-        };
+        // _clients = new ObservableCollection<ClientAttendanceMark>
+        // {
+        //     new ClientAttendanceMark(new Client("Александр")),
+        //     new ClientAttendanceMark(new Client("Влад")),
+        //     new ClientAttendanceMark(new Client("Марина")),
+        //     new ClientAttendanceMark(new Client("Яна")),
+        // };
         ClientsListView.ItemsSource = _clients;
     }
 

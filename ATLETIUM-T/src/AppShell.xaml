@@ -12,6 +12,12 @@
     Shell.TabBarTitleColor="{StaticResource AtletiumRed}"
     Shell.BackgroundColor="{StaticResource AtletiumWhite}"
     Title="ATLETIUM_T">
+    
+    <FlyoutItem>
+        <ShellContent x:Name="authorizationPage" Route="AuthorizationPage"
+                      ContentTemplate="{DataTemplate views:AuthorizationPage}"/>
+    </FlyoutItem>
+    
     <TabBar x:Name="tabBar">
         <Tab 
             Title="EventsPage"

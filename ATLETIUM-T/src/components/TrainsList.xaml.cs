@@ -1,17 +1,19 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using ATLETIUM_T.Models;
 using Microsoft.Maui.Controls;
 using System.Timers;
-using ATLETIUM_T.api;
-using ATLETIUM_T.api.repository;
+using ATLETIUM_T.api.controllers;
+using ATLETIUM_T.api.repositories;
+
 using Timer = System.Timers.Timer;
 
 namespace ATLETIUM_T.components;
 
 public partial class TrainsList : ContentView
 {
-    private TrainRepository _repository = new TrainRepository(new ApiHandler());
-    private ObservableCollection<TrainListItem> _trains { get; set; } = new ObservableCollection<TrainListItem>();
+
+    private ObservableCollection<TrainMain> _trains { get; set; } = new ObservableCollection<TrainMain>();
     private int? _train_list_view_tapped;
     private Timer _train_list_view_tapped_timer = new Timer(2000);
     private int _dayWeekNumber;
@@ -27,34 +29,34 @@ public partial class TrainsList : ContentView
         set { _dayWeekNumber = value; }
     }
     public int count_of_trains_today { get; private set; } = 0;
-    public TrainsList(int dayWeekNumber = 0)
+    private TrainController _controller = new TrainController(new TrainRepository());
+    public TrainsList()
+
     {
         InitializeComponent();
         DayWeekNumber = dayWeekNumber;
         LoadTrains();
         _train_list_view_tapped_timer.Elapsed += OnTappedTimerEvent;
+        TrainsListView.ItemsSource = _trains;
     }
     
     public void ListViewTrainsRefreshing()
     {
         LoadTrains();
-        count_of_trains_today = _trains.Count;
     }
     
     private async void LoadTrains()
     {
-        
-        
-        List<TrainListItem>? trainsList = await _repository.GetTrainsByWeekDayNumber(DayWeekNumber);
-        
+        var correct_number = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;
+        var trainsList = await _controller.GetTrainsListAsync(correct_number, DateTime.Now);
         if (_trains != null) _trains.Clear();
         if (trainsList == null) return;
-
-        foreach (var train in trainsList) 
+        foreach (var train in trainsList)
+        {
             _trains.Add(train);
-        
+        }
+
         count_of_trains_today = _trains.Count;
-        TrainsListView.ItemsSource = _trains;
     }
 
     private async void TrainsListView_OnItemTapped(object? sender, ItemTappedEventArgs e)

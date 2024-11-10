@@ -1,14 +1,14 @@
 ﻿namespace ATLETIUM_T.Models;
 
-public class Client
+public class Client()
 {
 
-    public Client(string fullname)
-    {
-        this.fullname = fullname;
-    }
-    
-    public string fullname { get; private set; }
+    public string? firstname { get; set; }
+    public string? lastname { get; set; }
+    public Guid id { get; set; }
+    public int? visit_status { get; set; }
+
+    public string? fullname => firstname + " " + lastname;
 }
 
 public class ClientAttendanceMark

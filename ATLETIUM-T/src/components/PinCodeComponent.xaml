@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATLETIUM_T.components.PinCodeComponent">
+    <VerticalStackLayout
+        Padding="30, 0"
+        Spacing="15"
+        VerticalOptions="Center">
+    
+        <Entry Placeholder="Пин-код" HorizontalOptions="Fill"
+               Keyboard="Numeric" MaxLength="6"
+               x:Name="PinCodeEntry"/>
+        
+        <Button x:Name="LoginBtn" Text="Войти" Margin="10, 0, 10, 0"
+                MaximumWidthRequest="250"
+                Clicked="LoginBtn_OnClicked"/>
+    
+    </VerticalStackLayout>
+</ContentView>
