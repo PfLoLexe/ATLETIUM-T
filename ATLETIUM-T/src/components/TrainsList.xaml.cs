@@ -34,7 +34,7 @@ public partial class TrainsList : ContentView
 
     {
         InitializeComponent();
-        DayWeekNumber = dayWeekNumber;
+        DayWeekNumber = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;;
         LoadTrains();
         _train_list_view_tapped_timer.Elapsed += OnTappedTimerEvent;
         TrainsListView.ItemsSource = _trains;
@@ -47,8 +47,7 @@ public partial class TrainsList : ContentView
     
     private async void LoadTrains()
     {
-        var correct_number = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;
-        var trainsList = await _controller.GetTrainsListAsync(correct_number, DateTime.Now);
+        var trainsList = await _controller.GetTrainsListAsync(DayWeekNumber, DateTime.Now);
         if (_trains != null) _trains.Clear();
         if (trainsList == null) return;
         foreach (var train in trainsList)
