@@ -2,18 +2,27 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ATLETIUM_T.components.PinCodeComponent">
+             x:Class="ATLETIUM_T.components.PinCodeComponent"
+             xmlns:pinview="clr-namespace:PINView.Maui;assembly=PINView.Maui">
     <VerticalStackLayout
         Padding="30, 0"
         Spacing="15"
         VerticalOptions="Center">
     
-        <Entry Placeholder="Пин-код" HorizontalOptions="Fill"
-               Keyboard="Numeric" MaxLength="6"
-               x:Name="PinCodeEntry"/>
+        <!-- <Entry Placeholder="Пин-код" HorizontalOptions="Fill" -->
+        <!--        Keyboard="Numeric" MaxLength="6" -->
+        <!--        x:Name="PinCodeEntry"/> -->
+        
+        <pinview:PINView BoxBackgroundColor="Transparent"
+                         BoxShape="RoundCorner" PINLength="6" PINValue="" x:Name="PinView"
+                         HorizontalOptions="Center"
+                         BoxSize="50"
+                         BoxBorderColor="{StaticResource AtletiumRed}"
+                         BoxStrokeThickness="2.0"/>
         
         <Button x:Name="LoginBtn" Text="Войти" Margin="10, 0, 10, 0"
                 MaximumWidthRequest="250"
+                BackgroundColor="{StaticResource AtletiumBlue}"
                 Clicked="LoginBtn_OnClicked"/>
     
     </VerticalStackLayout>

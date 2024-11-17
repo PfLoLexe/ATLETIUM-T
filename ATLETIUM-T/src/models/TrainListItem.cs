@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATLETIUM_T.Resources.locale;
 using Microsoft.Maui.Controls;
 

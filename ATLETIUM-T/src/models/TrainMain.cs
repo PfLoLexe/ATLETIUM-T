@@ -1,4 +1,7 @@
-﻿namespace ATLETIUM_T.Models;
+﻿using System;
+using Microsoft.Maui.Controls;
+
+namespace ATLETIUM_T.Models;
 
 public class TrainMain(
     Guid? id,

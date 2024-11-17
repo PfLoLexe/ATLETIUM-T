@@ -20,10 +20,10 @@ public class AttendanceMark
     
     public static readonly ObservableCollection<AttendanceMarkToCaption> attendance_variations_list =
     [
-        new AttendanceMarkToCaption("None", AttendanceMarkEnum.none),
-        new AttendanceMarkToCaption("Attended", AttendanceMarkEnum.attended),
-        new AttendanceMarkToCaption("Not Attended", AttendanceMarkEnum.not_attended),
-        new AttendanceMarkToCaption("Ill", AttendanceMarkEnum.ill)
+        new AttendanceMarkToCaption(" ", AttendanceMarkEnum.none),
+        new AttendanceMarkToCaption("Присутствовал", AttendanceMarkEnum.attended),
+        new AttendanceMarkToCaption("Не присутствовал", AttendanceMarkEnum.not_attended),
+        new AttendanceMarkToCaption("Заболел", AttendanceMarkEnum.ill)
     ];
 }
 

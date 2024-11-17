@@ -1,4 +1,7 @@
-﻿using ATLETIUM_T.api.repositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ATLETIUM_T.api.repositories;
 using ATLETIUM_T.localDatabase.controllers;
 using ATLETIUM_T.localDatabase.repositories;
 using ATLETIUM_T.Models;
@@ -28,7 +31,7 @@ public class TrainController(TrainRepository repository)
         return trainMainList;
     }
     
-    public async Task<TrainSpecific?> GetTrainInfo(Guid? train_main_id, DateTime date)
+    public async Task<TrainSpecific> GetTrainInfo(Guid? train_main_id, DateTime date)
     {
         var train = await _trainRepository.GetTrainInfo(train_main_id, date);
         if (train == null)

@@ -24,7 +24,7 @@ public partial class TrainDetail : ContentPage
         InitializeComponent();
     }
 
-    protected async override void OnNavigatedTo(NavigatedToEventArgs args)
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
         TrainNameLabel.Text = Train.name;
@@ -34,7 +34,7 @@ public partial class TrainDetail : ContentPage
 
     private async void AddClients()
     {
-        TrainSpecific? train = await _controller.GetTrainInfo(Train.id, Train.date_parsed);
+        TrainSpecific train = await _controller.GetTrainInfo(Train.id, Train.date_parsed);
         if (train == null) return;
         if (train.clients_list == null) return;
         
@@ -43,7 +43,10 @@ public partial class TrainDetail : ContentPage
         {
             clients.Add(client);
         }
-        MainLayout.Children.Add(new TrainInfoTabBar([new ClientsDataGrid(clients)]));
+
+        ClientsDataGrid clientsDataGrid = new ClientsDataGrid(train, clients);
+        MainLayout.Children.Add(new TrainInfoTabBar([clientsDataGrid]));
+        clientsDataGrid.UpdateClientsMarks();
     }
 
 }

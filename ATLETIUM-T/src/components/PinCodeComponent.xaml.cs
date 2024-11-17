@@ -9,6 +9,7 @@ using ATLETIUM_T.localDatabase.controllers;
 using ATLETIUM_T.localDatabase.repositories;
 using ATLETIUM_T.Models;
 using ATLETIUM_T.views;
+using Microsoft.Maui.Controls;
 
 namespace ATLETIUM_T.components;
 
@@ -35,7 +36,7 @@ public partial class PinCodeComponent : ContentView
         }
             
 
-        PinCodeResponse? pinCodeStatus = await _controller.AuthorizeByPinCodeAsync(PinCodeEntry.Text);
+        PinCodeResponse? pinCodeStatus = await _controller.AuthorizeByPinCodeAsync(PinView.PINValue);
         if (pinCodeStatus == null) return;
         if (pinCodeStatus.detail == "Unauthorized pincode")
         {
@@ -58,8 +59,10 @@ public partial class PinCodeComponent : ContentView
 
     private bool CheckPinCode()
     {
-        if (PinCodeEntry.Text == null) return false;
-        if (PinCodeEntry.Text.Length != 6) return false;
+        // if (PinCodeEntry.Text == null) return false;
+        // if (PinCodeEntry.Text.Length != 6) return false;
+        if (PinView.PINValue == null) return false;
+        if (PinView.PINLength != 6) return false;
         return true;
     }
 }

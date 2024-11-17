@@ -37,7 +37,9 @@
                                 x:Name="TrainStartTimeLabel" />
                             <CheckBox
                                 Grid.Column="1"
-                                IsChecked="{Binding mark}"/>
+                                IsChecked="{Binding mark}"
+                                x:Name="MarkCheckBox"
+                                CheckedChanged="MarkCheckBox_OnCheckedChanged"/>
                         </Grid>
                     </Frame>
                 </ViewCell>

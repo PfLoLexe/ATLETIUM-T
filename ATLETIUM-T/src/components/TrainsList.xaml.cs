@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ATLETIUM_T.Models;
 using Microsoft.Maui.Controls;
@@ -30,6 +31,7 @@ public partial class TrainsList : ContentView
     }
     public int count_of_trains_today { get; private set; } = 0;
     private TrainController _controller = new TrainController(new TrainRepository());
+    
     public TrainsList()
 
     {
