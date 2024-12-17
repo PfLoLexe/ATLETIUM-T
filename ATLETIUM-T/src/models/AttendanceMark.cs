@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ATLETIUM_T.Models;
 
@@ -12,6 +13,9 @@ public class AttendanceMark
         ill,
     }
 
+    public static readonly List<string> attendance_list = new List<string>()
+    { "None", "Присутствовал", "Не присутствовал", "Заболел" };
+
     public class AttendanceMarkToCaption(string caption, AttendanceMarkEnum value)
     {
         public string caption { get; private set; } = caption;
@@ -20,7 +24,7 @@ public class AttendanceMark
     
     public static readonly ObservableCollection<AttendanceMarkToCaption> attendance_variations_list =
     [
-        new AttendanceMarkToCaption(" ", AttendanceMarkEnum.none),
+        new AttendanceMarkToCaption("Не выбрано", AttendanceMarkEnum.none),
         new AttendanceMarkToCaption("Присутствовал", AttendanceMarkEnum.attended),
         new AttendanceMarkToCaption("Не присутствовал", AttendanceMarkEnum.not_attended),
         new AttendanceMarkToCaption("Заболел", AttendanceMarkEnum.ill)

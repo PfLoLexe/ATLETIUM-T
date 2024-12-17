@@ -22,6 +22,19 @@ public class HttpClientService
     // Метод для GET-запросов
     public async Task<T?> GetAsync<T>(string endpoint)
     {
+        _httpClient.DefaultRequestHeaders.Authorization = null;
+        var response = await _httpClient.GetAsync(endpoint);
+        response.EnsureSuccessStatusCode();  // выбросит исключение при ошибке
+
+        var content = await response.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<T>(content);
+    }
+    
+    public async Task<T?> GetAsync<T>(string endpoint, Token token)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", token.access_token);
+        
         var response = await _httpClient.GetAsync(endpoint);
         response.EnsureSuccessStatusCode();  // выбросит исключение при ошибке
 
@@ -50,6 +63,32 @@ public class HttpClientService
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         var response = await _httpClient.PostAsync(endpoint, content);
+        // response.EnsureSuccessStatusCode();
+
+        return response;
+    }
+    
+    // Метод для PUT-запросов
+    public async Task<HttpResponseMessage> PutAsync(string endpoint, object body)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization = null;
+        var json = JsonSerializer.Serialize(body);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await _httpClient.PutAsync(endpoint, content);
+        // response.EnsureSuccessStatusCode();
+
+        return response;
+    }
+    
+    public async Task<HttpResponseMessage> PutAsync(string endpoint, object body, Token token)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", token.access_token);
+        var json = JsonSerializer.Serialize(body);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await _httpClient.PutAsync(endpoint, content);
         // response.EnsureSuccessStatusCode();
 
         return response;

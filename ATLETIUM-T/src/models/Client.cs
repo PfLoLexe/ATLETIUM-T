@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace ATLETIUM_T.Models;
 
@@ -14,23 +17,18 @@ public class Client()
     public string? fullname => firstname + " " + lastname;
 }
 
-public class ClientAttendanceMark : INotifyPropertyChanged
+public class ClientAttendanceMark
 {
     public ClientAttendanceMark(Client client)
     {
         this.client = client;
+        this.attendance_list = AttendanceMark.attendance_list;
     }
     public Client client { get; private set; }
-    public AttendanceMark.AttendanceMarkEnum attendance_mark { get; set; }
-    
-    // Реализация INotifyPropertyChanged
-    public event PropertyChangedEventHandler PropertyChanged;
+    public List<string> attendance_list { get; private set; }
 
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+    public string status =>
+        attendance_list[
+            client.visit_status
+        ];
 }
-
-/*public ObservableCollection<AttendanceMark.AttendanceMarkToCaption> attendance_mark { get; set; }
-= AttendanceMark.attendance_variations_list;*/

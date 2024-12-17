@@ -11,6 +11,11 @@ public class LocalSettingsController(LocalSettingsRepository repository)
         return await repository.SaveToken(token, tokenType);
     }
 
+    public async Task<int> DeleteToken()
+    {
+        return await repository.DeleteToken();
+    }
+
     public async Task<Token?> GetToken()
     {
         return await repository.GetToken();

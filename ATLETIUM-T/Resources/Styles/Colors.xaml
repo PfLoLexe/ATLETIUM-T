@@ -37,7 +37,7 @@
     <!-- Tap bar colors -->
     <Color x:Key="DefaultBackLineColor">Gray</Color>
     <Color x:Key="UnselectedTabColor">DimGray</Color>
-    <Color x:Key="SelectedTabColor">Crimson</Color>
+    <Color x:Key="SelectedTabColor">#3e5792</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

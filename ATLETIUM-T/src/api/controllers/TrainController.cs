@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using ATLETIUM_T.api.repositories;
 using ATLETIUM_T.localDatabase.controllers;
@@ -18,7 +19,6 @@ public class TrainController(TrainRepository repository)
     {
 
         var token = await _localController.GetToken();
-
         if (token == null) return null;// TODO: start auth
         
         var trainMainList = await _trainRepository.GetTrainsListAsync(week_day_number, date, token);
@@ -41,5 +41,20 @@ public class TrainController(TrainRepository repository)
         }
         
         return train;
+    }
+    
+    public async void UploadClientsStatus(Guid trainSpecificId, ObservableCollection<ClientAttendanceMark> clientsList)
+    {
+        List<ClientsMarks> marksList = new List<ClientsMarks>();
+        foreach (ClientAttendanceMark client in clientsList)
+        {
+            marksList.Add(new ClientsMarks()
+            {
+                client_id = client.client.id,
+                visit_status = client.client.visit_status + 1
+            });
+        }
+        
+        _trainRepository.UploadClientsStatus(trainSpecificId, marksList);
     }
 }

@@ -16,6 +16,7 @@ namespace ATLETIUM_T.views;
 public partial class TrainDetail : ContentPage
 {
     private readonly TrainController _controller = new TrainController(new TrainRepository());
+    private ClientsList _clientDataGrid = null;
     
     public TrainMain Train { get; set; }
 
@@ -44,9 +45,22 @@ public partial class TrainDetail : ContentPage
             clients.Add(client);
         }
 
-        ClientsDataGrid clientsDataGrid = new ClientsDataGrid(train, clients);
-        MainLayout.Children.Add(new TrainInfoTabBar([clientsDataGrid]));
-        clientsDataGrid.UpdateClientsMarks();
+        //ClientsDataGrid clientsDataGrid = new ClientsDataGrid(train, clients);
+        _clientDataGrid = new ClientsList(train, clients);
+        MainLayout.Children.Clear();
+        MainLayout.Children.Add(new TrainInfoTabBar([_clientDataGrid]));
+        _clientDataGrid.UpdateClientsMarks();
     }
 
+    private void Button_OnClicked(object? sender, EventArgs e)
+    {
+        if (_clientDataGrid == null) return;
+        _clientDataGrid.UploadListToServer();
+        new ToastMessage().ShortToast("Сохранено");
+    }
+
+    private async void AddChatButton_OnClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
+    }
 }

@@ -3,48 +3,74 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATLETIUM_T.views.TrainDetail"
-             xmlns:templates="clr-namespace:ATLETIUM_T.components">
+             xmlns:templates="clr-namespace:ATLETIUM_T.components"
+             Shell.TabBarIsVisible="False"
+             Shell.BackgroundColor="{StaticResource AtletiumWhite}"
+             BackgroundColor="{StaticResource AtletiumWhite}"
+             Shell.NavBarIsVisible="False">
     
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="5*"/>
-                </Grid.RowDefinitions>
-                <Border 
-                    Grid.Row="0" 
-                    Padding="10, 10, 10, 5" 
-                    Stroke="Transparent" >
-                    <Label
-                        x:Name="TrainNameLabel"
-                        Text="Error" 
-                        FontSize="22" 
-                        FontAttributes="Bold"/>
-                </Border>
-                <Border 
-                    Grid.Row="1"
-                    Padding="10, 0, 10, 0"
-                    Stroke="Transparent">
-                    <Label
-                        Text="Error"
-                        x:Name="TrainTimeLabel"
-                        Margin="0, 0, 5, 0"
-                        FontSize="20" />
-                </Border>
-                <Border 
-                    Grid.Row="2"
-                    x:Name="ClientsDataGridBorder"
-                    Padding="5"
-                    Stroke="Transparent">
-                    <StackLayout x:Name="MainLayout" />
-                </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid ColumnDefinitions="*, *">
+                <Grid RowDefinitions="Auto, Auto">
+                    <Border 
+                        Grid.Row="0" 
+                        Padding="10, 10, 10, 5" 
+                        Stroke="Transparent" >
+                        <Label
+                            x:Name="TrainNameLabel"
+                            Text="Error" 
+                            FontSize="22" 
+                            FontAttributes="Bold"/>
+                    </Border>
+                    <Border 
+                        Grid.Row="1"
+                        Padding="10, 0, 10, 0"
+                        Stroke="Transparent">
+                        <Label
+                            Text="Error"
+                            x:Name="TrainTimeLabel"
+                            Margin="0, 0, 5, 0"
+                            FontSize="20" />
+                    </Border>
+                </Grid>
+                
+                <ImageButton Grid.Column="1" HorizontalOptions="End"
+                             Source="x.png"
+                             MaximumHeightRequest="36"
+                             MaximumWidthRequest="36"
+                             x:Name="AddChatButton"
+                             Margin="0,0,20,0"
+                             Clicked="AddChatButton_OnClicked"/>
             </Grid>
-    </Grid>
-    
+            
 
+            <Border 
+                Grid.Row="2"
+                x:Name="ClientsDataGridBorder"
+                Padding="5"
+                Stroke="Transparent">
+                <StackLayout x:Name="MainLayout" />
+            </Border>
+        </Grid>
+        
+        <Border Grid.Row="1"
+                Padding="5">
+            <Button Margin="5"
+                    MaximumWidthRequest="250"
+                    Text="Сохранить"
+                    Clicked="Button_OnClicked"
+                    BackgroundColor="{StaticResource AtletiumBlue}"/>
+        </Border>
+    </Grid>
 </ContentPage>

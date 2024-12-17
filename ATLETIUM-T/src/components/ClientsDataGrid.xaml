@@ -28,8 +28,7 @@
                 x:Name="ClientsDataGridViewAttendanceComboBoxColumn"
                 FieldName="attendance_mark"
                 DisplayMember="caption"
-                ValueMember="value"
-                BindingContextChanged="ClientsDataGridViewAttendanceComboBoxColumn_OnBindingContextChanged"/>
+                ValueMember="value"/>
         </dx:DataGridView.Columns>
     </dx:DataGridView>
 </ContentView>

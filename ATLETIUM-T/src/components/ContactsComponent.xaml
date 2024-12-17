@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATLETIUM_T.components.ContactsComponent">
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+        <Frame CornerRadius="30" BackgroundColor="White" HasShadow="False"
+               Margin="0, 10, 0, 10" Padding="10, 5, 10, 5">
+            <Grid ColumnDefinitions="*, Auto" Padding="5, 0, 5, 0" Margin="0">
+                <Entry Grid.Column="0" Text=""
+                       Placeholder="Телефон"
+                       TextColor="Black"
+                       PlaceholderColor="DimGrey"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="White"
+                       x:Name="PhoneNumberEntry"
+                       IsEnabled="False"
+                       Completed="PhoneNumberEntry_OnCompleted"
+                       Unfocused="PhoneNumberEntry_OnCompleted">
+                </Entry>
+                
+                <ImageButton Grid.Column="1" HorizontalOptions="End"
+                             Source="edit.png"
+                             MaximumHeightRequest="24"
+                             MaximumWidthRequest="24"
+                             x:Name="EditPhoneNumberButton"
+                             IsVisible="True"
+                             Clicked="EditPhoneNumberButton_OnClicked"/>
+            </Grid>
+        </Frame>
+        
+        <Frame CornerRadius="30" BackgroundColor="White" HasShadow="False"
+               Margin="0, 10, 0, 10" Padding="10, 5, 10, 5">
+            <Grid ColumnDefinitions="*, Auto" Padding="5, 0, 5, 0" Margin="0">
+                <Entry Grid.Column="0" Text=""
+                       Placeholder="@Телеграм"
+                       TextColor="Black"
+                       PlaceholderColor="DimGrey"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="White"
+                       x:Name="TelegramEntry"
+                       IsEnabled="False"
+                       Completed="TelegramEntry_OnCompleted"
+                       Unfocused="TelegramEntry_OnCompleted"/>
+                
+                <ImageButton Grid.Column="1" HorizontalOptions="End"
+                             Source="edit.png"
+                             MaximumHeightRequest="24"
+                             MaximumWidthRequest="24"
+                             x:Name="EditTgButton"
+                             IsVisible="True"
+                             Clicked="EditTgButton_OnClicked"/>
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentView>

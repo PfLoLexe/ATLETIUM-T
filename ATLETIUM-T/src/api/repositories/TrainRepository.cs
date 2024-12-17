@@ -46,4 +46,21 @@ public class TrainRepository
             return null;
         }
     }
+
+    public async void UploadClientsStatus(Guid train_specific_id, List<ClientsMarks> clients_list)
+    {
+        try
+        {
+            var response = await _service.PutAsync("/train-specific-to-client-link/update-status",
+                new { train_specific_id, clients_list });
+            if (response.StatusCode != HttpStatusCode.OK) return;
+            
+            await _service.Deserialize<List<TrainMain>>(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return;
+        }
+    }
 }

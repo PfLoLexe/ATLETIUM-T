@@ -45,9 +45,6 @@ public partial class ClientsDataGrid : ContentView
             
             _clients.Add(mark);
         }
-
-        foreach (ClientAttendanceMark mark in _clients)
-            mark.PropertyChanged += Mark_PropertyChanged;
         
     }
 

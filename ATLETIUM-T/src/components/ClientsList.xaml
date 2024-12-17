@@ -10,7 +10,8 @@
         SeparatorVisibility="None" 
         VerticalScrollBarVisibility="Never"
         IsPullToRefreshEnabled="False"
-        SelectionMode="None">
+        SelectionMode="None"
+        ItemTapped="ClientsListView_OnItemTapped">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -22,24 +23,27 @@
                         Padding="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label
                                 Text="{Binding client.fullname}"
                                 Style="{StaticResource Headline}"
-                                FontSize="22.0"
+                                FontSize="19.0"
                                 FontAttributes="Bold"
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Center"
                                 x:Name="TrainStartTimeLabel" />
-                            <CheckBox
+                            <Picker
                                 Grid.Column="1"
-                                IsChecked="{Binding mark}"
-                                x:Name="MarkCheckBox"
-                                CheckedChanged="MarkCheckBox_OnCheckedChanged"/>
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                ItemsSource="{Binding attendance_list}"
+                                SelectedItem="{Binding status}"
+                                SelectedIndexChanged="MarksPicker_OnSelectedIndexChanged"
+                                x:Name="MarksPicker"/>
                         </Grid>
                     </Frame>
                 </ViewCell>

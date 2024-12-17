@@ -17,6 +17,7 @@ namespace ATLETIUM_T
             InitializeComponent();
             _trainsList = new TrainsList();
             MainLayout.Children.Add(_trainsList);
+            _trainsList.ValueChanged += TrainsListOnValueChanged;
             LoadPageInfo();
         }
 
@@ -25,17 +26,17 @@ namespace ATLETIUM_T
             DayOfTheWeekLabel.Text = _date_week_day.GetDayOfTheWeek();
             DayAndMonthLabel.Text = _date_week_day.GetDayAsInt() +
                                     ' ' + _date_week_day.GetMonthAsString();
-            LoadCountOfTrains();
         }
 
-        private void LoadCountOfTrains() =>
-            CountOfTrainsTodayLabel.Text = "Занятия: " + _trainsList.count_of_trains_today.ToString();
+        private void TrainsListOnValueChanged(object? sender, int e)
+        {
+            CountOfTrainsTodayLabel.Text = "Занятия: " + _trainsList.AmountOfTrains.ToString();
+        }
 
 
         private void MainPageMainRefreshView_OnRefreshing(object? sender, EventArgs e)
         {
             _trainsList.ListViewTrainsRefreshing();
-            LoadCountOfTrains();
             MainPageMainRefreshView.IsRefreshing = false;
         }
     }

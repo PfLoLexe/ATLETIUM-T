@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATLETIUM_T.views.ChatListPage"
+             BackgroundColor="{StaticResource AtletiumWhite}">
+    <!-- <Border  -->
+    <!--     Padding="5" -->
+    <!--     Stroke="Transparent"> -->
+    <!--     <VerticalStackLayout x:Name="MainLayout" /> -->
+    <!--     ~1~ <templates:TrainsList x:Name="TrainListTemplate"/> @1@ -->
+    <!-- </Border> -->
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <RefreshView
+            Grid.Row="0" x:Name="ChatListMainRefreshView"
+            Refreshing="ChatListMainRefreshView_OnRefreshing">
+             <ScrollView
+                 VerticalScrollBarVisibility="Never">
+                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                     <Grid ColumnDefinitions="*, *" Margin="5">
+                         <Border 
+                             Grid.Column="0" 
+                             Padding="10, 10, 10, 5" 
+                             Stroke="Transparent" >
+                             <Label
+                                 x:Name="PageName"
+                                 Text="Чаты" 
+                                 FontSize="22" 
+                                 FontAttributes="Bold"/>
+                         </Border>
+                         <ImageButton Grid.Column="1" HorizontalOptions="End"
+                                      Source="plus.png"
+                                      Clicked="AddChatButton_OnClicked"
+                                      MaximumHeightRequest="32"
+                                      MaximumWidthRequest="32"
+                                      x:Name="AddChatButton"
+                                      Margin="0,0,10,0"/>
+                     </Grid>
+
+                    <!-- <Border  -->
+                    <!--     Grid.Row="1" -->
+                    <!--     Padding="10, 0, 10, 0" -->
+                    <!--     Stroke="Transparent"> -->
+                    <!--     <Grid> -->
+                    <!--         <Grid.ColumnDefinitions> -->
+                    <!--             <ColumnDefinition Width="Auto"/> -->
+                    <!--             <ColumnDefinition Width="Auto"/> -->
+                    <!--             <ColumnDefinition Width="Auto"/> -->
+                    <!--         </Grid.ColumnDefinitions> -->
+                    <!-- -->
+                    <!--     </Grid> -->
+                    <!-- </Border> -->
+                    <Border 
+                        Grid.Row="2"
+                        Padding="5"
+                        Stroke="Transparent">
+                        <VerticalStackLayout x:Name="MainLayout" />
+                        <!-- <templates:TrainsList x:Name="TrainListTemplate"/> -->
+                    </Border>
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

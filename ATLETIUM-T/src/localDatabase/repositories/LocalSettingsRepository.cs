@@ -48,6 +48,25 @@ public class LocalSettingsRepository
         return new Token(settings.Token, settings.TokenType);
     }
 
+    public async Task<int> DeleteToken()
+    {
+        await InitDatabase();
+
+        var oldSettings = await GetSettings(1);
+
+        
+        AppSettings appSettings = new AppSettings()
+        {
+            Id = 0,
+            Token = null,
+            TokenType = null
+        };
+        
+        if (oldSettings != null) appSettings.Id = oldSettings.Id;
+        if (appSettings.Id != 0) return await _dbContext.UpdateAsync(appSettings);
+        return await _dbContext.InsertAsync(appSettings);
+    }
+
     private async Task<AppSettings> GetSettings(int id)
     {
         await InitDatabase();

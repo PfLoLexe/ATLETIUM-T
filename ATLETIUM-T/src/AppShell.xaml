@@ -20,13 +20,21 @@
     
     <TabBar x:Name="tabBar">
         <Tab 
-            Title="EventsPage"
-            x:Name="eventsPage"
-            Route="EventsPage"
+            Title="ChatPage"
+            x:Name="chatPage"
+            Route="ChatPage"
             Icon="event_not_active.png">
             <ShellContent
-                ContentTemplate="{DataTemplate local:EventsPage}"/>
+                ContentTemplate="{DataTemplate views:ChatListPage}"/>
         </Tab>
+        <!-- <Tab  -->
+        <!--     Title="EventsPage" -->
+        <!--     x:Name="eventsPage" -->
+        <!--     Route="EventsPage" -->
+        <!--     Icon="event_not_active.png"> -->
+        <!--     <ShellContent -->
+        <!--         ContentTemplate="{DataTemplate local:EventsPage}"/> -->
+        <!-- </Tab> -->
         <Tab 
             Title="TrainsPage"
             x:Name="trainsPage"

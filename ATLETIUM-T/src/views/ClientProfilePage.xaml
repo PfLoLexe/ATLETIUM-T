@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATLETIUM_T.views.ClientProfilePage"
+             Shell.BackgroundColor="{StaticResource AtletiumWhite}"
+             BackgroundColor="{StaticResource AtletiumWhite}"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            
+
+                <Grid RowDefinitions="Auto, Auto">
+                    <Grid ColumnDefinitions="*, Auto" Grid.Row="0">
+                        <Border 
+                            Padding="10, 10, 10, 5" 
+                            Stroke="Transparent" >
+                            <Label
+                                x:Name="MainLabel"
+                                Text="Профиль клиента" 
+                                FontSize="22" 
+                                FontAttributes="Bold"/>
+                        </Border>
+                        
+                        <ImageButton Grid.Column="1" HorizontalOptions="End"
+                                     Source="x.png"
+                                     MaximumHeightRequest="36"
+                                     MaximumWidthRequest="36"
+                                     x:Name="BackButton"
+                                     Margin="0,5,20,0"
+                                     IsVisible="True"
+                                     Clicked="BackButton_OnClicked"/>
+                    </Grid>
+
+                    <Border 
+                        Grid.Row="1"
+                        Padding="10, 0, 10, 0"
+                        Stroke="Transparent">
+                        <Label
+                            Text="Загрузка"
+                            x:Name="TrainerNameLabel"
+                            Margin="0, 30, 5, 0"
+                            FontSize="28"
+                            FontAttributes="Bold"/>
+                    </Border>
+                </Grid>
+            
+
+            <Border 
+                Grid.Row="2"
+                x:Name="DataGridBorder"
+                Padding="5"
+                Stroke="Transparent">
+                <StackLayout x:Name="MainLayout" />
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

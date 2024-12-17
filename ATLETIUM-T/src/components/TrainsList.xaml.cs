@@ -18,8 +18,28 @@ public partial class TrainsList : ContentView
     private int? _train_list_view_tapped;
     private Timer _train_list_view_tapped_timer = new Timer(2000);
     private int _dayWeekNumber;
+
+    public event EventHandler<int> ValueChanged;
+    private int _amountOfTrains;
+    public int AmountOfTrains
+    {
+        get => _amountOfTrains;
+        set
+        {
+            if (_amountOfTrains != value)
+            {
+                _amountOfTrains = value;
+                OnValueChanged(_amountOfTrains);
+            }
+        }
+    }
     
-    private int DayWeekNumber
+    private void OnValueChanged(int newValue)
+    {
+        ValueChanged?.Invoke(this, newValue);
+    }
+
+    public int DayWeekNumber
     {
         get
         {
@@ -29,14 +49,26 @@ public partial class TrainsList : ContentView
         
         set { _dayWeekNumber = value; }
     }
-    public int count_of_trains_today { get; private set; } = 0;
+
+    private DateTime _currentDay;
+    public DateTime CurrentDay
+    {
+        get
+        {
+            if (_currentDay == null) return DateTime.Now;
+            return _currentDay;
+        }
+        
+        set { _currentDay = value; }
+    }
+    
     private TrainController _controller = new TrainController(new TrainRepository());
     
     public TrainsList()
 
     {
         InitializeComponent();
-        DayWeekNumber = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;;
+        DayWeekNumber = (int)DateTime.Now.DayOfWeek == 0 ? 7 : (int)DateTime.Now.DayOfWeek;
         LoadTrains();
         _train_list_view_tapped_timer.Elapsed += OnTappedTimerEvent;
         TrainsListView.ItemsSource = _trains;
@@ -47,9 +79,9 @@ public partial class TrainsList : ContentView
         LoadTrains();
     }
     
-    private async void LoadTrains()
+    public async void LoadTrains()
     {
-        var trainsList = await _controller.GetTrainsListAsync(DayWeekNumber, DateTime.Now);
+        var trainsList = await _controller.GetTrainsListAsync(DayWeekNumber, CurrentDay);
         if (_trains != null) _trains.Clear();
         if (trainsList == null) return;
         foreach (var train in trainsList)
@@ -57,7 +89,7 @@ public partial class TrainsList : ContentView
             _trains.Add(train);
         }
 
-        count_of_trains_today = _trains.Count;
+        AmountOfTrains = _trains.Count;
     }
 
     private async void TrainsListView_OnItemTapped(object? sender, ItemTappedEventArgs e)

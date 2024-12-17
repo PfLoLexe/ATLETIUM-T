@@ -38,10 +38,10 @@ public class TrainMain(
         {
             switch (train_type)
             {
-                case "Personal":
+                case "Group":
                     return ImageSource.FromFile("group_icon.png");
 
-                case "Group":
+                case "Personal":
                     return ImageSource.FromFile("one_to_one_icon.png");
             }
 
