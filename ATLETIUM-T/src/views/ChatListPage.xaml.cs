@@ -25,7 +25,13 @@ public partial class ChatListPage : ContentPage
         LoadUsers();
 
     }
-    
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        LoadMainChats();
+    }
+
     private void LoadUsers()
     {
         if (AddNewMode)

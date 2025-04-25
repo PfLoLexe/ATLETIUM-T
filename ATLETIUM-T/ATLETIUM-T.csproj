@@ -59,9 +59,7 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="DevExpress.Maui.DataGrid" Version="24.1.6" />
 		<PackageReference Include="DevExpress.Maui.Editors" Version="24.1.6" />
-		<PackageReference Include="DevExpress.Maui.Scheduler" Version="24.1.6" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.72" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
