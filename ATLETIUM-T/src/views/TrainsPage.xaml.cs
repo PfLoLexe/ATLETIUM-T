@@ -67,7 +67,7 @@ public partial class TrainsPage : ContentPage
     {
         _date_week_day.SetDate(e.NewDate);
         SelectedDay = (int)e.NewDate.DayOfWeek == 0 ? 7 : (int)e.NewDate.DayOfWeek;
-        SelectedDayAsDayTime = e.NewDate;
+            SelectedDayAsDayTime = e.NewDate;
         LoadPageInfo();
     }
 }

@@ -18,8 +18,6 @@ namespace ATLETIUM_T
                 .UseDevExpressCollectionView()
                 .UseDevExpressEditors()
                 .UseDevExpressControls()
-                .UseDevExpressScheduler()
-                .UseDevExpressDataGrid()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -8,8 +8,8 @@
     Shell.FlyoutBehavior="Disabled"
     Shell.TabBarBackgroundColor="{StaticResource AtletiumWhite}"
     Shell.TabBarUnselectedColor="Black"
-    Shell.TabBarForegroundColor="{StaticResource AtletiumRed}"
-    Shell.TabBarTitleColor="{StaticResource AtletiumRed}"
+    Shell.TabBarForegroundColor="{StaticResource AtletiumBlue}"
+    Shell.TabBarTitleColor="{StaticResource AtletiumBlue}"
     Shell.BackgroundColor="{StaticResource AtletiumWhite}"
     Title="ATLETIUM_T">
     
