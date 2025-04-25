@@ -5,7 +5,6 @@ namespace ATLETIUM_T.localDatabase.models;
 
 public class TrainsAttendanceMarks
 {
-
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
     public Guid TrainId { get; set; }
