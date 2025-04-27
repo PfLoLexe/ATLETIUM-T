@@ -49,13 +49,6 @@ public partial class TrainsPage : ContentPage
 
     private void DatePickerImageButton_OnClicked(object? sender, EventArgs e)
     {
-        /*#if ANDROID
-            var handler = _date_picker.Handler as IDatePickerHandler;
-            handler.PlatformView.PerformClick();
-        #else
-            _date_picker.Focus();
-        #endif*/
-        
         TrainsDatePicker.IsVisible = true;
         #if ANDROID
             var handler = TrainsDatePicker.Handler as IDatePickerHandler;

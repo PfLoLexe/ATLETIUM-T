@@ -117,7 +117,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AdditionalFiles Include="src\views\EventsPage.xaml" />
 	  <AdditionalFiles Include="src\views\MainPage.xaml" />
 	  <AdditionalFiles Include="src\views\ProfilePage.xaml" />
 	  <AdditionalFiles Include="src\views\TrainsPage.xaml" />
