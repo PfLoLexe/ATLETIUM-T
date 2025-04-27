@@ -22,13 +22,12 @@ public partial class ChatListPage : ContentPage
     public ChatListPage()
     {
         InitializeComponent();
-        LoadUsers();
-
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        if (_ChatUsers != null) _ChatUsers.Clear();
         LoadMainChats();
     }
 

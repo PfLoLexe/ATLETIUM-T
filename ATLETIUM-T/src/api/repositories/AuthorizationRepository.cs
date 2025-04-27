@@ -14,7 +14,7 @@ public class AuthorizationRepository
     {
         try
         {
-            var response = await _service.PostAsync("/token",
+            var response = await _service.PostAsync("/v1/token",
                 new { username, password });
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
@@ -31,7 +31,7 @@ public class AuthorizationRepository
     {
         try
         {
-            var response = await _service.PostAsync("/verify-pincode",
+            var response = await _service.PostAsync("/v1/verify-pincode",
                 new { pincode }, token);
             
             return await _service.Deserialize<PinCodeResponse>(response);

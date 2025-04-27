@@ -12,7 +12,7 @@ public class ClientRepository
     {
         try
         { 
-            var response = await _service.PostAsync("/client/get-info",
+            var response = await _service.PostAsync("/v1/client/get-info",
                 new {client_id}, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             

@@ -59,7 +59,7 @@ public partial class ChatViewModel : ObservableObject
         _webSocketService = new WebSocketService();
         _webSocketService.MessageReceived += OnMessageReceived;
 
-        Task.Run(async () => await _webSocketService.ConnectAsync($"ws://10.0.2.2:8000/ws/{await _userController.GetCurrentUserGuid()}"));
+        Task.Run(async () => await _webSocketService.ConnectAsync($"ws://10.0.2.2:8000/v1/websocket/chat-connection/{await _userController.GetCurrentUserGuid()}"));
         
         Messages = new ObservableCollection<Message>() { };
     }

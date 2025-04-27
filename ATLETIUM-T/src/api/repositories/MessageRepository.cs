@@ -15,7 +15,7 @@ public class MessageRepository
     {
         try
         { 
-            var response = await _service.PostAsync("/message/add",
+            var response = await _service.PostAsync("/v1/message/add",
                 message, token);
             if (response.StatusCode != HttpStatusCode.OK) return;
 
@@ -31,7 +31,7 @@ public class MessageRepository
     {
         try
         { 
-            var response = await _service.PostAsync("/message/get_list", new {dialogue_id}, token);
+            var response = await _service.PostAsync("/v1/message/get_list", new {dialogue_id}, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
             return await _service.Deserialize<List<MessageResponse>>(response);

@@ -15,7 +15,7 @@ public class UserRepository
     {
         try
         {
-            var response = await _service.GetAsync<Guid>("/get-current-user-uuid", token);
+            var response = await _service.GetAsync<Guid>("/v1/get-current-user-uuid", token);
             return response;
         }
         catch (Exception e)
@@ -29,7 +29,7 @@ public class UserRepository
     {
         try
         {
-            var response = await _service.GetAsync<CurrentUserInfo>("/user/me", token);
+            var response = await _service.GetAsync<CurrentUserInfo>("/v1/user/me", token);
             return response;
         }
         catch (Exception e)

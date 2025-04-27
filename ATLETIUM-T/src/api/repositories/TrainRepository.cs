@@ -16,7 +16,7 @@ public class TrainRepository
         try
         {
             string date = rawDate.ToString("yyyy-MM-dd");
-            var response = await _service.PostAsync("/train-main/get-list/by-week-day-number",
+            var response = await _service.PostAsync("/v1/train-main/get-list/by-week-day-number",
                 new { week_day_number, date }, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
@@ -34,7 +34,7 @@ public class TrainRepository
         try
         {
             string date = rawDate.ToString("yyyy-MM-dd");
-            var response = await _service.PostAsync("/train-specific/get",
+            var response = await _service.PostAsync("/v1/train-specific/get",
                 new { train_main_id, date });
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
@@ -51,7 +51,7 @@ public class TrainRepository
     {
         try
         {
-            var response = await _service.PutAsync("/train-specific-to-client-link/update-status",
+            var response = await _service.PutAsync("/v1/train-specific-to-client-link/update-status",
                 new { train_specific_id, clients_list });
             if (response.StatusCode != HttpStatusCode.OK) return;
             

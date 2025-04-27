@@ -15,7 +15,7 @@ public class DialogueRepository
     {
         try
         {
-            var response = await _service.PostAsync("/dialogue/get_list",
+            var response = await _service.PostAsync("/v1/dialogue/get_list",
                 new { }, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
@@ -33,7 +33,7 @@ public class DialogueRepository
         try
         {
             const string search_string = "string";
-            var response = await _service.PostAsync("/dialogue/possible/get_list",
+            var response = await _service.PostAsync("/v1/dialogue/possible/get_list",
                 new {search_string}, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
@@ -50,7 +50,7 @@ public class DialogueRepository
     {
         try
         {
-            var response = await _service.PostAsync("/dialogue/add",
+            var response = await _service.PostAsync("/v1/dialogue/add",
                 new {second_user_id}, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             

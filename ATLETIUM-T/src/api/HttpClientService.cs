@@ -93,7 +93,7 @@ public class HttpClientService
 
         return response;
     }
-
+    
     public async Task<T?> Deserialize<T>(HttpResponseMessage response)
     {
         var responseContent = await response.Content.ReadAsStringAsync();
