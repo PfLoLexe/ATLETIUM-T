@@ -29,13 +29,13 @@ public class TrainRepository
         }
     }
     
-    public async Task<TrainSpecific?> GetTrainInfo(Guid? train_main_id, DateTime rawDate)
+    public async Task<TrainSpecific?> GetTrainInfo(Guid? train_main_id, DateTime rawDate, Token token)
     {
         try
         {
             string date = rawDate.ToString("yyyy-MM-dd");
             var response = await _service.PostAsync("/v1/train-specific/get",
-                new { train_main_id, date });
+                new { train_main_id, date }, token);
             if (response.StatusCode != HttpStatusCode.OK) return null;
             
             return await _service.Deserialize<TrainSpecific>(response);

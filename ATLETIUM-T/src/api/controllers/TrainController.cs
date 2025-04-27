@@ -33,7 +33,10 @@ public class TrainController(TrainRepository repository)
     
     public async Task<TrainSpecific> GetTrainInfo(Guid? train_main_id, DateTime date)
     {
-        var train = await _trainRepository.GetTrainInfo(train_main_id, date);
+        var token = await _localController.GetToken();
+        if (token == null) return null;// TODO: start auth
+        
+        var train = await _trainRepository.GetTrainInfo(train_main_id, date, token);
         if (train == null)
         {
             new ToastMessage().ShortToast("Ошибка получения тренировоки");

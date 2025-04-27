@@ -27,8 +27,7 @@ public partial class ChatListPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        if (_ChatUsers != null) _ChatUsers.Clear();
-        LoadMainChats();
+        LoadUsers();
     }
 
     private void LoadUsers()
@@ -59,6 +58,7 @@ public partial class ChatListPage : ContentPage
         }
         
         _usersChatCardsList = new UsersChatCardsList(_ChatUsers);
+        MainLayout.Children.Clear();
         MainLayout.Children.Add(_usersChatCardsList);
     }
 

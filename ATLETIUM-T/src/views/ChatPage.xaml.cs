@@ -27,6 +27,7 @@ public partial class ChatPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        Title = ChatUser.Fullname;
         ChatViewModel.RecipientUserId = ChatUser.Id;
         ChatViewModel.DialogueId = ChatUser.ChatId;
         ChatViewModel.СompanionName = ChatUser.Fullname;

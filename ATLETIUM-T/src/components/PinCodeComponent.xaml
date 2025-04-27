@@ -6,7 +6,7 @@
              xmlns:pinview="clr-namespace:PINView.Maui;assembly=PINView.Maui">
     <VerticalStackLayout
         Padding="30, 0"
-        Spacing="15"
+        Spacing="5"
         VerticalOptions="Center">
     
         <!-- <Entry Placeholder="Пин-код" HorizontalOptions="Fill" -->
@@ -17,13 +17,20 @@
                          BoxShape="RoundCorner" PINLength="6" PINValue="" x:Name="PinView"
                          HorizontalOptions="Center"
                          BoxSize="50"
-                         BoxBorderColor="{StaticResource AtletiumRed}"
+                         BoxBorderColor="{StaticResource AtletiumBlue}"
                          BoxStrokeThickness="2.0"/>
         
-        <Button x:Name="LoginBtn" Text="Войти" Margin="10, 0, 10, 0"
+        <Button x:Name="LoginBtn" Text="Войти" Margin="10, 10, 10, 0"
                 MaximumWidthRequest="250"
                 BackgroundColor="{StaticResource AtletiumBlue}"
                 Clicked="LoginBtn_OnClicked"/>
+        
+        <Button Text="Войти при помощи пароля"
+                TextColor="{StaticResource AtletiumBlue}"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                FontAttributes="Bold"
+                Clicked="Button_OnClicked"/> 
     
     </VerticalStackLayout>
 </ContentView>

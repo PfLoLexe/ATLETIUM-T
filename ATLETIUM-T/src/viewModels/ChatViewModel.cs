@@ -88,12 +88,6 @@ public partial class ChatViewModel : ObservableObject
     
     private async void OnMessageReceived(string message)
     {
-        // MessageResponse deserializedMessage = await Deserialize(message);
-        //
-        // // Добавляем сообщение от других пользователей
-        // Messages.Add(new Message { Text = $"{deserializedMessage.text}", SentAt = deserializedMessage.send_date,
-        //     Sender = Сompanion, IsLastMessage = true });
-        
         Messages.Add(new Message { Text = $"{message}", SentAt = DateTime.Now,
             Sender = Сompanion, IsLastMessage = true });
     }
@@ -101,10 +95,7 @@ public partial class ChatViewModel : ObservableObject
     private async Task SendMessageWebSocket(string message)
     {
         if (string.IsNullOrWhiteSpace(message)) return;
-    
-        // Отправляем сообщение через WebSocket
-        // await _webSocketService.SendMessageAsync(message);
-
+        
         if (DialogueId == null || RecipientUserId == null)
             return;
 
@@ -157,12 +148,6 @@ public partial class ChatViewModel : ObservableObject
             return !string.IsNullOrEmpty(messageText) && !string.IsNullOrWhiteSpace(messageText);
         return message != null;
     }
-    
-    // public async Task<MessageResponse> Deserialize(string message)
-    // {
-    //     var result = JsonSerializer.Deserialize<MessageResponse>(message);
-    //     return result;
-    // }
 }
 
 public class Message {

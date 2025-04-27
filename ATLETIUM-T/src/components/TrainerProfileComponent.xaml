@@ -63,7 +63,6 @@
                     </Border>
                 </Grid>
             
-
             <Border 
                 Grid.Row="2"
                 x:Name="DataGridBorder"
@@ -72,15 +71,6 @@
                 <StackLayout x:Name="MainLayout" />
             </Border>
         </Grid>
-        
-        <!-- <Border Grid.Row="1" -->
-        <!--         Padding="5"> -->
-        <!--     <Button Margin="5" -->
-        <!--             MaximumWidthRequest="250" -->
-        <!--             Text="Сохранить" -->
-        <!--              -->
-        <!--             BackgroundColor="{StaticResource AtletiumBlue}"/> -->
-        <!-- </Border> -->
     </Grid>
     
 </ContentView>

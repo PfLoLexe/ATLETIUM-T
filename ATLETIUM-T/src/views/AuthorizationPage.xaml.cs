@@ -16,6 +16,7 @@ namespace ATLETIUM_T.views;
 public partial class AuthorizationPage : ContentPage
 {
     private readonly LocalSettingsController _controller = new LocalSettingsController(new LocalSettingsRepository());
+    private PinCodeComponent _pinCodeComponent;
     
     public AuthorizationPage()
     {
@@ -42,12 +43,18 @@ public partial class AuthorizationPage : ContentPage
 
     private void PinCodeAuth()
     {
-        var pinCodeComponent = new PinCodeComponent();
-        pinCodeComponent.DataSent += OnDataReceived;
+        var _pinCodeComponent = new PinCodeComponent();
+        _pinCodeComponent.DataSent += OnDataReceived;
+        _pinCodeComponent.ChangeComponent += ChangeComponentToLogin;
         MainLayout.Children.Clear();
-        MainLayout.Children.Add(pinCodeComponent);
+        MainLayout.Children.Add(_pinCodeComponent);
     }
 
+    private void ChangeComponentToLogin(object? sender, bool e)
+    {
+        LoginAuth();
+    }
+    
     private void LoginAuth()
     {
         MainLayout.Children.Clear();

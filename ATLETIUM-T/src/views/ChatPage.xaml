@@ -9,12 +9,18 @@
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
              x:Class="ATLETIUM_T.views.ChatPage"
              Shell.TabBarIsVisible="False"
+             Title="Фио"
              Shell.BackgroundColor="{StaticResource AtletiumWhite}"
-             BackgroundColor="{StaticResource AtletiumWhite}"
-             >
-     <ContentPage.BindingContext>
+             BackgroundColor="{StaticResource AtletiumWhite}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="?" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.BindingContext>
         <local:ChatViewModel />
     </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <DataTemplate x:Key="senderMessageTemplate"  x:DataType="{x:Type local:Message}">
             <dx:DXContentPresenter
@@ -115,7 +121,7 @@
                 <dxe:TextEdit
                     x:Name="messageEditor"
                     HeightRequest="40"
-                    PlaceholderText="Your text message"
+                    PlaceholderText="Ваше сообщение..."
                     BackgroundColor="{dx:ThemeColor SurfaceContainer}"
                     PlaceholderColor="{dx:ThemeColor OnSurfaceVariant}"
                     BoxPadding="16,8"
@@ -127,15 +133,18 @@
                     Grid.Column="1"
                     Command="{Binding SendMessageCommand}"
                     CommandParameter="{Binding EditMessageText}"
-                    IconColor="{dx:ThemeColor Primary}"
+                    IconColor="{StaticResource AtletiumBlue}"
+                    PressedIconColor="{StaticResource AtletiumBlue}"
                     Padding="0"
                     Margin="0"
-                    Icon="send"
+                    Icon="sendy.png"
                     IconIndent="0"
                     IconPlacement="Left"
-                    IconWidth="40"
-                    IconHeight="40"
-                    BackgroundColor="{dx:ThemeColor SurfaceVariant}"
+                    IconWidth="35"
+                    IconHeight="35"
+                    BackgroundColor="Transparent"
+                    DisabledBackgroundColor="Transparent"
+                    PressedBackgroundColor="Transparent"
                     WidthRequest="40"
                     HeightRequest="40"
                     CornerRadius="40">

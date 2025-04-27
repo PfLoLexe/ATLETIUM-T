@@ -99,10 +99,13 @@ public partial class TrainsList : ContentView
         {
             _train_list_view_tapped = null;
 
+            var train = _trains[e.ItemIndex];
+            train.date = CurrentDay.ToString();
+            
             await Shell.Current.GoToAsync($"{nameof(TrainDetail)}",
                 new Dictionary<string, object>
                 {
-                    ["train"] = _trains[e.ItemIndex]
+                    ["train"] = train
                 });
 
         }

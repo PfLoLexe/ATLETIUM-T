@@ -19,8 +19,13 @@ public partial class PinCodeComponent : ContentView
 
     private readonly LocalSettingsController _localController =
         new LocalSettingsController(new LocalSettingsRepository());
+    
+    private LocalSettingsController _localSettingsController =
+        new LocalSettingsController(new LocalSettingsRepository());
 
     public event EventHandler<string> DataSent;
+    
+    public event EventHandler<bool> ChangeComponent;
     
     public PinCodeComponent()
     {
@@ -59,10 +64,14 @@ public partial class PinCodeComponent : ContentView
 
     private bool CheckPinCode()
     {
-        // if (PinCodeEntry.Text == null) return false;
-        // if (PinCodeEntry.Text.Length != 6) return false;
         if (PinView.PINValue == null) return false;
         if (PinView.PINLength != 6) return false;
         return true;
+    }
+
+    private async void Button_OnClicked(object? sender, EventArgs e)
+    {
+        await _localSettingsController.DeleteToken();
+        ChangeComponent?.Invoke(this, true);
     }
 }

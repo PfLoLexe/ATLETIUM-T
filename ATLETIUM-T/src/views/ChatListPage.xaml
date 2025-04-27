@@ -4,17 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATLETIUM_T.views.ChatListPage"
              BackgroundColor="{StaticResource AtletiumWhite}">
-    <!-- <Border  -->
-    <!--     Padding="5" -->
-    <!--     Stroke="Transparent"> -->
-    <!--     <VerticalStackLayout x:Name="MainLayout" /> -->
-    <!--     ~1~ <templates:TrainsList x:Name="TrainListTemplate"/> @1@ -->
-    <!-- </Border> -->
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <RefreshView
             Grid.Row="0" x:Name="ChatListMainRefreshView"
@@ -46,26 +38,13 @@
                                       x:Name="AddChatButton"
                                       Margin="0,0,10,0"/>
                      </Grid>
-
-                    <!-- <Border  -->
-                    <!--     Grid.Row="1" -->
-                    <!--     Padding="10, 0, 10, 0" -->
-                    <!--     Stroke="Transparent"> -->
-                    <!--     <Grid> -->
-                    <!--         <Grid.ColumnDefinitions> -->
-                    <!--             <ColumnDefinition Width="Auto"/> -->
-                    <!--             <ColumnDefinition Width="Auto"/> -->
-                    <!--             <ColumnDefinition Width="Auto"/> -->
-                    <!--         </Grid.ColumnDefinitions> -->
-                    <!-- -->
-                    <!--     </Grid> -->
-                    <!-- </Border> -->
+                     
                     <Border 
                         Grid.Row="2"
                         Padding="5"
                         Stroke="Transparent">
                         <VerticalStackLayout x:Name="MainLayout" />
-                        <!-- <templates:TrainsList x:Name="TrainListTemplate"/> -->
+
                     </Border>
                 </Grid>
             </ScrollView>
