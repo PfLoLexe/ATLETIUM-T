@@ -7,7 +7,12 @@
         Padding="30, 0"
         Spacing="15"
         VerticalOptions="Center">
-    
+        
+        <Image
+            Source="logo_2.png"
+            BackgroundColor="{StaticResource AtletiumBlue}"
+        />
+        
         <Entry Placeholder="Логин" HorizontalOptions="Fill"
                x:Name="LoginEntry"/>
         <Entry Placeholder="Пароль" HorizontalOptions="Fill"
